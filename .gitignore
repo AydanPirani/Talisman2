@@ -6,6 +6,13 @@ __pycache__/
 # C extensions
 *.so
 
+# Secret files
+secret.json
+
+#PyCharm files
+.idea/
+
+
 # Distribution / packaging
 .Python
 build/

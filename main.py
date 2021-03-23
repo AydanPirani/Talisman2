@@ -5,11 +5,9 @@ from selenium.webdriver.common.keys import Keys
 from webdriver_manager.chrome import ChromeDriverManager
 
 
-driver = webdriver.Chrome(ChromeDriverManager().install())
-
-
 def iterate(max_iterations, search_term, boosted_site):
     iterations = 1
+    driver = webdriver.Chrome(ChromeDriverManager().install())
     start = datetime.now()
     while iterations < max_iterations:
         driver.get("https://www.google.com")
@@ -30,5 +28,5 @@ new_search_term = "The Propaganda Model"
 new_boosted_site = "The Propaganda Model – Media Studies 101"
 
 print("Starting the code!")
-threads = [threading.Thread(target=iterate, args=(100, new_search_term, new_boosted_site)) for _ in range(10)]
+threads = [threading.Thread(target=iterate, args=(100, new_search_term, new_boosted_site)) for _ in range(4)]
 [thread.start() for thread in threads]
